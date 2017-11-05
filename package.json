@@ -1,0 +1,20 @@
+{
+  "name": "blyatbot",
+  "version": "1.0.0",
+  "description": "BlyatBot moderates your Discord",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "blyat",
+    "bot"
+  ],
+  "author": "Tobias (@Tobinatore)",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "opusscript": "0.0.4"
+  }
+}
