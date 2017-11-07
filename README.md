@@ -7,7 +7,8 @@ Features:
 3. Join Voice Channel and play music
 4. Display ones avatar in chat
 5. Detailed help message
-6. Configurable swearword filter
+6. Configurable swearword filter  
+7. Timed and permament muting as well as unmuting
 
 
 # BlyatBot
@@ -19,4 +20,6 @@ Features:
 3. Voice Channel beitreten und Musik spielen
 4. Den eigenen Avatar in den Chat posten
 5. Detailierte Infonachricht
-6. Konfigurierbarer Obszönitätenfilter
+6. Konfigurierbarer Obszönitätenfilter  
+7. Zeitbeschränktes/unbegrenztes Stummschalten von Nutzern sowie wieder Freischalten der Kommunikation
+
