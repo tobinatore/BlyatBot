@@ -74,7 +74,7 @@ bot.on("message", function(message){
 	if(!message.content.startsWith(config.prefix)) return;
 
 	let msgArr = message.content.split(" "); // ["blyat","timedMute","255345474934931456", "10"]
-	let command = msgArr[1]; // "help"
+	let command = msgArr[1]; // "timedMute"
 	let args = msgArr.slice(2, msgArr.length); //["255345474934931456", "10"]
     
 	console.log(command);

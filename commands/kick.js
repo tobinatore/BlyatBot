@@ -19,7 +19,7 @@
         member.kick(reason)
           .catch(error => message.reply(`Sorry ${message.author} konnte nicht kicken weil : ${error}`));
         message.reply(`${member.user.tag} wurde von ${message.author.tag} gekickt. Grund: ${reason}`);
-        member.sendMessage("Du wurdest gekickt.");
+        member.send(`Du wurdest von ${message.author.tag} gekickt. Grund: ${reason}`);
 }
 
 module.exports.help = {
