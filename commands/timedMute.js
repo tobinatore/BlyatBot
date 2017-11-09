@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
 
     fs.writeFile("./mutes.json", JSON.stringify(bot.mutes, null, 4), err => {
         if(err) throw err;
-        message.reply("Ich habe den Nutzer gemuted, Genosse!");
+        message.reply(`Ich habe den Nutzer für ${args[1]} Sekunden gemuted, Genosse!`);
 
     });
 

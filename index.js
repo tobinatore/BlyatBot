@@ -5,6 +5,7 @@ const fs = require("fs");
 var bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 bot.mutes = require("./mutes.json");
+bot.bans = require("./bans.json");
 
 fs.readdir("./commands/", (err, files) => {
     if (err) console.error(err);
@@ -32,13 +33,8 @@ bot.on("ready",function(){
         for (let i in bot.mutes) {
             let time = bot.mutes[i].time;
             let guildID = bot.mutes[i].guild;
-            console.log(guildID);
-            console.log(" ");
-
             let guild = bot.guilds.get(guildID);
             let member = guild.members.get(i);
-            console.log(member.id);
-            console.log(" ");
             let mutedRole = guild.roles.find(r => r.name === "BB TimedMuted");
            // console.log(Date.now());
             //  console.log(time);
@@ -58,6 +54,24 @@ bot.on("ready",function(){
                 });
             }
         }
+
+        for (let i in bot.bans){
+         let time = bot.bans[i].time;
+         let guildID = bot.bans[i].guild;
+         let guild = bot.guilds.get(guildID);
+         let member = bot.bans[i].user;
+
+        if(!member) continue;
+         if (Date.now() > bot.bans[i].time) {
+                guild.unban(member);
+                delete bot.bans[i];
+
+                fs.writeFile("./bans.json", JSON.stringify(bot.bans), err=> {
+                    if (err) throw err;
+                });
+            }         
+        }
+        
     }, 3000);
 });
 
@@ -73,9 +87,9 @@ bot.on("message", function(message){
 
 	if(!message.content.startsWith(config.prefix)) return;
 
-	let msgArr = message.content.split(" "); // ["blyat","timedMute","255345474934931456", "10"]
-	let command = msgArr[1]; // "timedMute"
-	let args = msgArr.slice(2, msgArr.length); //["255345474934931456", "10"]
+	let msgArr = message.content.split(" "); // ["blyat","timedMute","255345474934931456", "10"]  || ["blyat", "tempBan","@Tobinatore", "you've", "failed", "me!", "20" ]
+	let command = msgArr[1]; // "timedMute"  || tempBan
+	let args = msgArr.slice(2, msgArr.length); //["255345474934931456", "10"]   || ["you've", "failed", "me!", "20" ]
     
 	console.log(command);
 

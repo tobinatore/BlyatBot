@@ -1,7 +1,7 @@
 ﻿const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
-    let user = message.guild.member(message.mentions.users.first());
+    let user = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     let joinDate = user.joinedAt;
     let createDate = user.user.createdAt;
     let username = user.displayName;
