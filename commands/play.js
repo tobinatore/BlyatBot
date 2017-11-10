@@ -38,6 +38,8 @@ async function play(connection, message, bot) {
 module.exports.run = async (bot, message, args) => {
     var iconurl = bot.user.avatarURL;
 
+    message.delete();
+
     if (!args[0]) {
         var embed = new Discord.RichEmbed()
             .setAuthor("BlyatBot", iconurl)
@@ -56,7 +58,10 @@ module.exports.run = async (bot, message, args) => {
         };
 
     var server = servers[message.guild.id];
+    
+    if(args[0].startsWith("https://www.youtube.com/")){
     server.queue.push(args[0]);
+    
     if (server.dispatcher) {
         if (server.queue.length > 0) {
             var title = await ytdlc.getInfo(args[0]);
@@ -67,6 +72,7 @@ module.exports.run = async (bot, message, args) => {
                     title.title)
                 .setThumbnail(title.thumbnail_url.replace("default.jpg", "hqdefault.jpg"))
             message.channel.send(embed);
+
         }
     }
 
@@ -79,6 +85,8 @@ module.exports.run = async (bot, message, args) => {
                 if (!server.dispatcher)
                     play(message.guild.voiceConnection, message, bot);
             }
+        }
+        else message.send("Blyat ich kann im Moment nur YouTube-Lieder spielen. Also bracuhe ich eine YouTube-URL!")
 }
 module.exports.help = {
     name: "play"
