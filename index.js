@@ -7,6 +7,11 @@ bot.commands = new Discord.Collection();
 bot.mutes = require("./mutes.json");
 bot.bans = require("./bans.json");
 
+nowPlaying = {};    // used in play.js, skip.js, queue.js
+volume = {};
+servers = {};
+
+
 fs.readdir("./commands/", (err, files) => {
     if (err) console.error(err);
     
@@ -24,6 +29,8 @@ fs.readdir("./commands/", (err, files) => {
         bot.commands.set(props.help.name, props);
     });
     });
+
+
 
 
 bot.on("ready",function(){

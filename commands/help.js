@@ -13,39 +13,13 @@
             },
             "fields": [
               {
-                  "name": "............................................................................................................................................................... ",
+                  "name": "................................................................   Moderation   ....................................................................... ",
                   "value": "....................................................................................................................................................................."
               },
               {
                   "name": "🗑",
-                  "value": "blyat purge (2-100) - löscht die angegebene Menge an Nachrichten"
-              },
-              {
-                  "name": "🆔",
-                  "value": "blyat whois @user - lässt den KGB nach Infos über den Nutzer suchen"
-              },
-              {
-                  "name": "🤜",
-                  "value": "blyat kick @user Grund - Kickt den betroffenen User"
-              },
-              {
-                  "name": "🤔",
-                  "value": "blyat help - Zeigt dieses Fenster"
-
-              },
-              {
-                  "name": "<:communism:375693414689144842>",
-                  "value": "blyat anthem - musikalische Unterhaltung",
-                  "inline": true
-              },
-               {
-                   "name": "🅱ass",
-                   "value": "blyat bass - musikalische Unterhaltung",
-                   "inline": true
-               },
-              {
-                  "name": "☠",
-                  "value": "blyat stop - stoppt die Musik"
+                  "value": "blyat purge (2-100) - löscht die angegebene Menge an Nachrichten",
+                "inline": true
               },
               {
                   "name": "🔇",
@@ -53,14 +27,88 @@
                   "inline": true
               },
               {
-                  "name": "🔉",
+                  "name": "🔇🕐",
                   "value": "blyat timedMute @user ZeitInSekunden  - muted den User für eine bestimmte Zeit",
                   "inline": true
               },
-            {
+              {
                 "name": "🔊",
-                "value": "blyat unmute @user - hebt beide Arten von Mutes auf"
-            },
+                "value": "blyat unmute @user - hebt beide Arten von Mutes auf",
+                "inline": true
+              },
+              {
+                "name": "🤜",
+                "value": "blyat kick @user Grund - Kickt den betroffenen User"
+              },
+              {
+                "name": "🔨",
+                "value": "blyat ban @user - bannt den User",
+                 "inline": true
+              },
+              {
+                "name": "🔨🕐",
+                "value": "blyat tempBan @user ZeitInSekunden - bannt den User für x Sekunden"
+                ,"inline": true
+              },
+              {
+                "name": "🔨🚫",
+                "value": "blyat unban <user-id> - entbannt den User (Command ohne userid zeigt alle gebannten Nutzer mit ID)"
+                ,"inline": true
+              },
+              {
+                  "name": "🆔",
+                  "value": "blyat whois @user - lässt den KGB nach Infos über den Nutzer suchen"
+              },
+
+              {
+                  "name": "🤔",
+                  "value": "blyat help - Zeigt dieses Fenster"
+
+              },
+                {
+                  "name": "....................................................................    Musik    .............................................................................",
+                  "value": "....................................................................................................................................................................."
+              },
+              {
+                  "name": "<:communism:375693414689144842>",
+                  "value": "blyat anthem - musikalische Unterhaltung",
+                  "inline": true
+              },
+              {
+                   "name": "🅱ass",
+                   "value": "blyat bass - musikalische Unterhaltung",
+                   "inline": true
+               },
+               {
+                   "name": "🎵",
+                   "value": "blyat play YoutubeURL - spielt angegebenes Lied / fügt es zur Queue hinzu",
+                   "inline": true
+               },
+               {
+                   "name": "⏩",
+                   "value": "blyat skip - überspringt das momentane Lied",
+                   "inline": true
+               },
+               {
+                   "name": "ℹ",
+                   "value": "blyat song - zeigt Informationen zum momentanen Lied",
+                   "inline": true
+               },
+               {
+                   "name": "🔉",
+                   "value": "blyat volume Lautstärke - stellt Lautstärke ein",
+                   "inline": true
+               },
+               {
+                   "name": "🗒",
+                   "value": "blyat queue - zeigt die Queue an",
+                   "inline": true
+               },
+              {
+                  "name": "⏹",
+                  "value": "blyat stop - stoppt die Musik"
+              },
+
               {
                   "name": "...............................................................................................................................................................",
                   "value": "....................................................................................................................................................................."
@@ -69,7 +117,6 @@
                   "name": "🙄",
                   "value": "Mehr Funktionen kommen wenn ich Zeit hab"
               }
-
         ]
         }});
     message.delete();
