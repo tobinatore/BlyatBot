@@ -4,7 +4,7 @@ const Discord = require("discord.js");
 module.exports.run = async (bot, message, args) => {
     var iconurl = bot.user.avatarURL;
             if (nowPlaying[message.guild.id]) {
-                var video = await ytdlc.getInfo(nowPlaying[message.guild.id]);
+                var video = nowPlaying[message.guild.id];
                 var embed = new Discord.RichEmbed()
                     .setAuthor("BlyatBot", iconurl)
                     .setColor([255, 0, 0])

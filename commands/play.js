@@ -1,13 +1,12 @@
 const ytdlc = require ("ytdl-core");
 const Discord = require("discord.js");
-
+const yApi = require('../blyatmodules/youtube.js')
 
 async function play(connection, message, bot) {
     var server = servers[message.guild.id];
-    var video;
 
     nowPlaying[message.guild.id] = server.queue.shift();
-    video = await ytdlc.getInfo(nowPlaying[message.guild.id]);
+    var video = nowPlaying[message.guild.id];
 
     var iconurl = bot.user.avatarURL;
     var embed = new Discord.RichEmbed()
@@ -15,16 +14,17 @@ async function play(connection, message, bot) {
         .setColor([255, 0, 0])
         .setDescription("**Spielt gerade:**\n" +
         video.title)
-        .setThumbnail(video.thumbnail_url.replace("default.jpg", "hqdefault.jpg"))
+        .setThumbnail(video.thumbnail)
         //.setThumbnail(video.thumbnail_url.replace("default.jpg", "hqdefault.jpg"))
     message.channel.send(embed); // This sends a message of the current music playing
 
-    server.dispatcher = connection.playStream(ytdlc(nowPlaying[message.guild.id], { filter: "audioonly" })); // This will stream only the audio part of the video.
+    server.dispatcher = connection.playStream(ytdlc(video.url, { filter: "audioonly" })); // This will stream only the audio part of the video.
     if (volume[message.guild.id]) // This checks if the users have set a volume
         server.dispatcher.setVolume(volume[message.guild.id]); // This sets the volume of the stream
 
     server.dispatcher.on("end", function () {
         nowPlaying[message.guild.id] = null;
+
         if (server.queue.length > 0){
             play(connection, message, bot);
         }
@@ -58,23 +58,29 @@ module.exports.run = async (bot, message, args) => {
         };
 
     var server = servers[message.guild.id];
-    
-    if(args[0].startsWith("https://www.youtube.com/")){
-    server.queue.push(args[0]);
-    
-    if (server.dispatcher) {
-        if (server.queue.length > 0) {
-            var title = await ytdlc.getInfo(args[0]);
-            var embed = new Discord.RichEmbed()
-                .setAuthor("BlyatBot", iconurl)
-                .setColor([255, 0, 0])
-                .setDescription(`**Zur Liste hinzugefügt:**\n` +
-                    title.title)
-                .setThumbnail(title.thumbnail_url.replace("default.jpg", "hqdefault.jpg"))
-            message.channel.send(embed);
+    var search;
 
-        }
-    }
+    if(args[0].startsWith("http"))
+        search = args[0];
+    else
+        search = args.join(" ");
+
+    yApi.getVideo(search).then(function (video) {
+
+    server.queue.push(video);
+
+            if (server.dispatcher) {
+                if (server.queue.length > 0) {
+                    var embed = new Discord.RichEmbed()
+                        .setAuthor("BlyatBot", iconurl)
+                        .setColor([255, 0, 0])
+                        .setDescription("**Zur Liste hinzugefügt:**\n" +
+                        video.title)
+                        .setThumbnail(video.thumbnail)
+                    message.channel.send(embed);
+                }
+            }
+        });
 
     if (!message.guild.voiceConnection)
         message.member.voiceChannel.join().then(function (connection) {
@@ -85,8 +91,7 @@ module.exports.run = async (bot, message, args) => {
                 if (!server.dispatcher)
                     play(message.guild.voiceConnection, message, bot);
             }
-        }
-        else message.send("Blyat ich kann im Moment nur YouTube-Lieder spielen. Also bracuhe ich eine YouTube-URL!")
+
 }
 module.exports.help = {
     name: "play"

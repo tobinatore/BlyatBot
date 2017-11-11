@@ -4,6 +4,9 @@
 # config.json which holds the bots token
 config.json
 
+#youtube.js which holds my YouTube API Key
+youtube.js
+
 # Logs
 logs
 *.log
