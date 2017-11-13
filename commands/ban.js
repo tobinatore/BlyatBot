@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
        
           });
 
-        //and now we kick...
+        //and now we ban...
         member.ban(reason)
           .catch(error => message.reply(`Sorry ${message.author} konnte nicht bannen weil : ${error}`));
      

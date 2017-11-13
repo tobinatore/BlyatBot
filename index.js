@@ -6,6 +6,7 @@ var bot = new Discord.Client();
 bot.commands = new Discord.Collection();
 bot.mutes = require("./mutes.json");
 bot.bans = require("./bans.json");
+bot.warns = require("./warns.json");
 
 nowPlaying = {};    // used in play.js, skip.js, queue.js
 volume = {};
