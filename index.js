@@ -7,6 +7,7 @@ bot.commands = new Discord.Collection();
 bot.mutes = require("./mutes.json");
 bot.bans = require("./bans.json");
 bot.warns = require("./warns.json");
+bot.remind = require("./reminders.json");
 
 nowPlaying = {};    // used in play.js, skip.js, queue.js
 volume = {};
@@ -78,6 +79,21 @@ bot.on("ready",function(){
                     if (err) throw err;
                 });
             }         
+        }
+
+         for (let i in bot.remind) {
+            let time = bot.remind[i].time;
+            let member = bot.remind[i].user;
+
+            if (Date.now() > bot.remind[i].time) {
+                member.send("Ich sollte dich erinnern, Genosse:\n"+
+                    bot.remind[i].notification);
+                delete bot.remind[i];
+
+                fs.writeFile("./reminders.json", JSON.stringify(bot.remind), err=> {
+                    if (err) throw err;
+                });
+            }
         }
         
     }, 3000);
