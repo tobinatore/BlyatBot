@@ -15,7 +15,6 @@ async function play(connection, message, bot) {
         .setDescription("**Spielt gerade:**\n" +
         video.title)
         .setThumbnail(video.thumbnail)
-        //.setThumbnail(video.thumbnail_url.replace("default.jpg", "hqdefault.jpg"))
     message.channel.send(embed); // This sends a message of the current music playing
 
     server.dispatcher = connection.playStream(ytdlc(video.url, { filter: "audioonly" })); // This will stream only the audio part of the video.

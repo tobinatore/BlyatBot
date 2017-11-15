@@ -33,8 +33,6 @@ fs.readdir("./commands/", (err, files) => {
     });
 
 
-
-
 bot.on("ready",function(){
     bot.user.setGame("blyat help");
 
@@ -99,6 +97,7 @@ bot.on("ready",function(){
     }, 3000);
 });
 
+
 bot.on("message", function(message){
 
 	if (message.author.equals(bot.user)) return;
@@ -124,5 +123,6 @@ bot.on("message", function(message){
 	}
 
 });
+
 
 bot.login(config.token);

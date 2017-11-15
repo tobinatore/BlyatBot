@@ -3,7 +3,7 @@
     
 
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-    if(!toMute) return message.reply("Blyat du musst schon jemanden zum unmuten auswählen!");
+    if(!toMute) return message.reply("Blyat du musst schon jemanden zum entmuten auswählen!");
 
     let role = message.guild.roles.find(r => r.name === "BB Muted")
     let roleT = message.guild.roles.find(r => r.name === "BB TimedMuted")
@@ -14,7 +14,7 @@
 
     if( toMute.roles.has(role.id)) await toMute.removeRole(role);
     if( toMute.roles.has(roleT.id)) await toMute.removeRole(roleT);
-    message.reply("Ich habe den Nutzer unmuted, Genosse!");
+    message.reply("Ich habe den Nutzer entmuted, Genosse!");
   
     delete bot.mutes[toMute.id];
 

@@ -4,7 +4,7 @@ module.exports.run = async (bot, message, args) => {
     if(!message.member.hasPermission("ADMINISTRATOR") )
                 return message.reply("Sorry, du hast nicht die erforderlichen Rechte um jemanden zu bannen!");
     
-            //check if there is a member and whether we can kick him
+            //check if there is a member and whether we can ban him
             // message.mentions.members is a collection of people that have been mentioned, as GuildMembers.
         let member = message.mentions.members.first() || message.guild.members.get(args[0]);
         if(!member)
