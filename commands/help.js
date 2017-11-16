@@ -1,6 +1,6 @@
 ﻿module.exports.run = async (bot, message, args) => {
     message.channel.send({
-        "embed": {
+          "embed": {
             "color": 16125699,
             "title": "<:communism:375693414689144842>I moderate our beautiful Discord, comrade.<:communism:375693414689144842>",  
             "footer": {
@@ -59,7 +59,16 @@
                   "name": "🆔",
                   "value": "blyat whois @user - lässt den KGB nach Infos über den Nutzer suchen"
               },
+              {
+                  "name": "⚠",
+                  "value": "blyat warn @user <Grund> - verwarnt den Nutzer"
 
+              },
+              {
+                  "name": "✍",
+                  "value": "blyat report @user <Grund> - meldet den Nutzer den Administratoren"
+
+              },
               {
                   "name": "🤔",
                   "value": "blyat help - Zeigt dieses Fenster"
@@ -100,7 +109,7 @@
                    "inline": true
                },
                {
-                   "name": "🗒",
+                   "name": "🎶",
                    "value": "blyat queue - zeigt die Queue an",
                    "inline": true
                },
@@ -110,13 +119,17 @@
               },
 
               {
-                  "name": "...............................................................................................................................................................",
+                  "name": ".............................................................   Verschiedenes   .................................................................... ",
                   "value": "....................................................................................................................................................................."
               },
               {
-                  "name": "🙄",
-                  "value": "Mehr Funktionen kommen wenn ich Zeit hab"
-              }
+                  "name": "⏰",
+                  "value": "blyat remindMe <Nachricht> <Zeit> - sendet dir eine PM wenn die Zeit abgelaufen ist"
+              }, 
+              {
+                  "name": "🗒",
+                  "value": "blyat poll <Umfrage> - startet eine Ja/Nein-Umfrage"
+              }  
         ]
         }});
     message.delete();
