@@ -13,7 +13,8 @@ Features:
 9. Warning users \*
 10. Non-moderators can report users to admins
 11. Add songs from YouTube to a queue and the bot will play them (->Musicbot)  
-12. Remind you of something if you tell him to
+12. Remind you of something if you tell him to  
+13. Create a poll and let the users vote on a yes-no-question 
 
 
 # BlyatBot
@@ -30,7 +31,8 @@ Features:
 8. Zeitbeschränktes/unbegrenztes Bannen von Nutzern, sowie entbannen durch den Bot \*
 9. Verwarnen von Nutzern \*
 10. Nicht-Moderatoren können Nutzer den Admins melden
-10. Hinzufügen von YouTube-Liedern zu einer Queue und abspielen dieser Queue im Voicechat (->Musicbot)  
-11. Erinnert dich an Dinge, wenn du es ihm befiehlst
+11. Hinzufügen von YouTube-Liedern zu einer Queue und abspielen dieser Queue im Voicechat (->Musicbot)    
+12. Erinnert dich an Dinge, wenn du es ihm befiehlst  
+13. Kann Ja-Nein-Umfragen erstellen und die Servermitglieder abstimmen lassen
 
 \* *requires Administrator-Privilege / setzt Administrationsrechte vorraus*
