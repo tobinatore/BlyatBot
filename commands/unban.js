@@ -2,8 +2,6 @@
 
 module.exports.run = async (bot, message, args) => {
 
-bot.bans = require("../bans.json");
-
     if(!message.member.hasPermission("ADMINISTRATOR") )
                 return message.reply("Sorry, du hast nicht die erforderlichen Rechte um jemanden zu entbannen!");
     

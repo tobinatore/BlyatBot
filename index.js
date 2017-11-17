@@ -80,8 +80,9 @@ bot.on("ready",function(){
         }
 
          for (let i in bot.remind) {
+            let guild = bot.guilds.get(bot.remind[i].guild);
             let time = bot.remind[i].time;
-            let member = bot.remind[i].user;
+            let member = guild.members.get(i);
 
             if (Date.now() > bot.remind[i].time) {
                 member.send("Ich sollte dich erinnern, Genosse:\n"+

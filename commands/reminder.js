@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
 
     bot.remind[message.author.id] = {
         time: Date.now() + parseInt(args.pop()) * 1000,
-        user: message.author, 
+        guild: message.guild.id,
         notification: args.join(" ")
        
     }
