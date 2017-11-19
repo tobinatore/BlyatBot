@@ -32,6 +32,28 @@ fs.readdir("./commands/", (err, files) => {
     });
     });
 
+bot.on("guildMemberAdd", (member) => {
+    const guild = member.guild;
+    const embed = new Discord.RichEmbed()
+    .setTitle("Herzlich Willkommen!")
+    .setAuthor("BlyatBot", bot.user.avatarURL)
+    .setColor("#FF0000")
+    .setDescription(`Hallo Genosse ${member.user.username}! Herzlich Willkommen auf dem Server ${guild.name}. Hier ein paar Infos über den Server:`)
+    .setFooter("BlyatBot von Tobinatore", bot.user.avatarURL)
+    .setTimestamp()
+    .addBlankField()
+    .addField("Name",`${guild.name}`, true)
+    .addField("ID", `${guild.id}`, true)
+    .addField("Besitzer",`${guild.owner}`, true)
+    .addField("Mitgliederzahl", `${guild.memberCount}`, true)
+    .addField("Erstelldatum", `${guild.createdAt}`)
+    .addField("Region", `${guild.region}`)
+    .addField("Verifikationslevel", `${guild.verificationLevel}`);
+
+    member.send(embed);
+
+});
+
 
 bot.on("ready",function(){
     bot.user.setGame("blyat help");
