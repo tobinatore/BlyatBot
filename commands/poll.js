@@ -1,3 +1,4 @@
+// creates a poll
 ﻿
 module.exports.run = async (bot, message, args) => {
 
@@ -9,8 +10,8 @@ module.exports.run = async (bot, message, args) => {
               message.react("👍")
               message.react("👎")
             });
-    
-   
+
+
 }
 
 module.exports.help = {

@@ -1,8 +1,10 @@
-﻿module.exports.run = async (bot, message, args) => {
+//Displays Help message
+
+module.exports.run = async (bot, message, args) => {
     message.channel.send({
           "embed": {
             "color": 16125699,
-            "title": "<:communism:375693414689144842>I moderate our beautiful Discord, comrade.<:communism:375693414689144842>",  
+            "title": "<:communism:375693414689144842>I moderate our beautiful Discord, comrade.<:communism:375693414689144842>",
             "footer": {
                 "icon_url": "https://cdn.discordapp.com/avatars/376302185245442048/de65328d2a7109552fca4b6fc14bbcf1.webp?size=128%22",
                 "text": "BlyatBot von Tobinatore"
@@ -74,50 +76,6 @@
                   "value": "blyat help - Zeigt dieses Fenster"
 
               },
-                {
-                  "name": "....................................................................    Musik    .............................................................................",
-                  "value": "....................................................................................................................................................................."
-              },
-              {
-                  "name": "<:communism:375693414689144842>",
-                  "value": "blyat anthem - musikalische Unterhaltung",
-                  "inline": true
-              },
-              {
-                   "name": "🅱ass",
-                   "value": "blyat bass - musikalische Unterhaltung",
-                   "inline": true
-               },
-               {
-                   "name": "🎵",
-                   "value": "blyat play YoutubeURL - spielt angegebenes Lied / fügt es zur Queue hinzu",
-                   "inline": true
-               },
-               {
-                   "name": "⏩",
-                   "value": "blyat skip - überspringt das momentane Lied",
-                   "inline": true
-               },
-               {
-                   "name": "ℹ",
-                   "value": "blyat song - zeigt Informationen zum momentanen Lied",
-                   "inline": true
-               },
-               {
-                   "name": "🔉",
-                   "value": "blyat volume Lautstärke - stellt Lautstärke ein",
-                   "inline": true
-               },
-               {
-                   "name": "🎶",
-                   "value": "blyat queue - zeigt die Queue an",
-                   "inline": true
-               },
-              {
-                  "name": "⏹",
-                  "value": "blyat stop - stoppt die Musik"
-              },
-
               {
                   "name": ".............................................................   Verschiedenes   .................................................................... ",
                   "value": "....................................................................................................................................................................."
@@ -125,11 +83,11 @@
               {
                   "name": "⏰",
                   "value": "blyat remindMe <Nachricht> <Zeit> - sendet dir eine PM wenn die Zeit abgelaufen ist"
-              }, 
+              },
               {
                   "name": "🗒",
                   "value": "blyat poll <Umfrage> - startet eine Ja/Nein-Umfrage"
-              }  
+              }
         ]
         }});
     message.delete();

@@ -1,11 +1,12 @@
+//unbans a user - needs user id, command without arguments displays all banned users + id's
 ﻿const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
 
     if(!message.member.hasPermission("ADMINISTRATOR") )
                 return message.reply("Sorry, du hast nicht die erforderlichen Rechte um jemanden zu entbannen!");
-    
-        
+
+
         let member = args[0];
         if(!member) {
             message.channel.send("Ok blyat, das sind alle gebannten Nutzer. Ich brauche die ID von dem, den du entbannen willst.")
@@ -20,7 +21,7 @@ module.exports.run = async (bot, message, args) => {
                 }
             }
         }
-    
+
         if(member){
          message.guild.unban(member);
          delete bot.bans[member];

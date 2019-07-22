@@ -13,9 +13,9 @@
   "author": "Tobias (@Tobinatore)",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^11.2.1",
-    "ffmpeg-binaries": "^3.2.2-3",
-    "googleapis": "^22.2.0",
+    "discord.js": "^11.5.1",
+    "ffmpeg-binaries": "^3.2.2",
+    "googleapis": "^41.0.1",
     "opusscript": "0.0.4",
     "ytdl-core": "^0.18.1"
   }

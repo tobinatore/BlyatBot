@@ -1,7 +1,9 @@
+//Creates a reminder
+
 ﻿const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
-    
+
     if (!args[0]) {
         var embed = new Discord.RichEmbed()
             .setAuthor("BlyatBot", iconurl)
@@ -15,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
         time: Date.now() + parseInt(args.pop()) * 1000,
         guild: message.guild.id,
         notification: args.join(" ")
-       
+
     }
 
     fs.writeFile("./reminders.json", JSON.stringify(bot.remind, null, 4), err => {

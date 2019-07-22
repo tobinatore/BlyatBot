@@ -1,3 +1,5 @@
+//Deletes the specified amount of messages
+
 ﻿module.exports.run = async (bot, message, args) => {
     if (message.member.hasPermission("ADMINISTRATOR")) {    //requires admin-privilige
         let messagecount = parseInt(args[0]);

@@ -1,3 +1,5 @@
+//Gathers information about the mentioned user
+
 ﻿const Discord = require("discord.js");
 
 module.exports.run = async (bot, message, args) => {
@@ -10,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     let tag = user.user.tag;
     let isBot = user.user.bot;
     let avatarURL = user.user.displayAvatarURL
-    
+
     const embed = new Discord.RichEmbed()
     .setTitle("Streng vertraulich!")
     .setAuthor("Tobinatore", "https://cdn.discordapp.com/avatars/357861848650874890/d2185c7c548875343c7a85423d711385.webp?size=128")
@@ -28,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
     .addField("Server-Beitrittsdatum", `${joinDate}`)
     .addField("Höchste Rolle", `${highestRole}`)
     .addField("Discord-Beitrittsdatum", `${createDate}`);
- 
+
     message.channel.send({embed});
 }
 module.exports.help = {

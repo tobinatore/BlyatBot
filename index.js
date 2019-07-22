@@ -16,7 +16,7 @@ servers = {};
 
 fs.readdir("./commands/", (err, files) => {
     if (err) console.error(err);
-    
+
     let cmdfiles = files.filter(f => f.split(".").pop() === "js");
     if (cmdfiles.length <= 0) {
         console.log("No commands to load!");
@@ -56,7 +56,7 @@ bot.on("guildMemberAdd", (member) => {
 
 
 bot.on("ready",function(){
-    bot.user.setGame("blyat help");
+    bot.user.setActivity("blyat help", {type:'PLAYING'});
 
     bot.setInterval(() => {
         for (let i in bot.mutes) {
@@ -98,7 +98,7 @@ bot.on("ready",function(){
                 fs.writeFile("./bans.json", JSON.stringify(bot.bans), err=> {
                     if (err) throw err;
                 });
-            }         
+            }
         }
 
          for (let i in bot.remind) {
@@ -116,7 +116,7 @@ bot.on("ready",function(){
                 });
             }
         }
-        
+
     }, 3000);
 });
 
@@ -124,7 +124,7 @@ bot.on("ready",function(){
 bot.on("message", function(message){
 
 	if (message.author.equals(bot.user)) return;
-	
+
 	const swearWords = ["nigger", "faggot","idiot", "bitch", "🇳ℹ🇬🇬🇪🇷", "🇳🇮🇬🇬🇪🇷"];   //you might expand this one
 	if (swearWords.some(word => message.content.toLowerCase().includes(word))) {
 	    message.reply("Zensiert blyat!");   //censored blyat!
@@ -136,7 +136,7 @@ bot.on("message", function(message){
 	let msgArr = message.content.split(" "); // ["blyat","timedMute","255345474934931456", "10"]  || ["blyat", "tempBan","@Tobinatore", "you've", "failed", "me!", "20" ]
 	let command = msgArr[1]; // "timedMute"  || tempBan
 	let args = msgArr.slice(2, msgArr.length); //["255345474934931456", "10"]   || ["you've", "failed", "me!", "20" ]
-    
+
 	console.log(command);
 
 	let cmd = bot.commands.get(command);

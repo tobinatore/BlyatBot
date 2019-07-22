@@ -1,8 +1,10 @@
+//Mutes a user for a specified amount of time (seconds)
+
 ﻿const fs = require("fs");
 
 module.exports.run = async (bot, message, args) => {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("Genosse, deine Rechte reichen nicht aus!");
-    
+
 
     let toMute = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
     if(!toMute) return message.reply("Blyat du musst schon jemanden zum Muten auswählen!");
@@ -12,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
     if(!role){
         try{
-        
+
             role = await message.guild.createRole({
                 name: "BB TimedMuted",
                 color: "#000000",
